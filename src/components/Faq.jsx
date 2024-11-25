@@ -30,43 +30,42 @@ const faqData = [
 ];
 
 export default function Faq() {
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const toggleFaq = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
 
   return (
-    <div className="flex flex-col lg:flex-row items-center lg:items-start justify-center gap-10 p-10 md:px-20">
-      <div className="md:w-[30%] w-full ">
-      <h2 className="text-3xl md:max-w-80 font-bold  mb-4 text-center lg:text-left">
+    <div className="flex flex-col bg-gray-100 lg:flex-row items-center lg:items-start justify-center gap-10 p-10 md:px-20">
+      <div className="md:w-[30%] w-full">
+        <h2 className="text-3xl md:max-w-80  font-bold md:leading-10  mb-4 text-center lg:text-left">
           Frequently Asked Questions
         </h2>
-      <img
-        src={faqImage}
-        alt="FAQ illustration"
-        className="rounded-lg shadow-lg "
-      />
+        <img
+          src={faqImage}
+          alt="FAQ illustration"
+          className="rounded-lg shadow-lg md:block hidden "
+        />
       </div>
 
       <div className="flex-1 md:w-[70%] w-full">
-      
         <div className="space-y-4">
           {faqData.map((faq, index) => (
             <div
               key={index}
-              className={`border rounded-lg p-4 transition-all ${
-                activeIndex === index ? "bg-gray-100" : "bg-white"
-              }`}
+              className={`border rounded-lg p-4 transition-all bg-white
+               
+              `}
             >
               <button
                 onClick={() => toggleFaq(index)}
                 className="flex justify-between items-center w-full font-medium text-lg text-left"
               >
-                <span>{faq.question}</span>
+                <span className="font-semibold">{faq.question}</span>
                 <svg
                   className={`transition-transform ${
-                    activeIndex === index ? "rotate-180" : ""
+                    activeIndex === index ? "-rotate-0" : "-rotate-90"
                   }`}
                   fill="none"
                   height={24}
