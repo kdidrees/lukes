@@ -9,24 +9,28 @@ import { useMediaQuery } from "react-responsive";
 const testimonialData = [
   {
     name: "Adam Smith",
+    img: `https://picsum.photos/50`,
     position: "Web Designer at Airtable",
     desc: "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum.",
     star: "4",
   },
   {
     name: "Emily Johnson",
+    img: `https://picsum.photos/50`,
     position: "Frontend Developer at Shopify",
     desc: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form.",
     star: "5",
   },
   {
     name: "Michael Brown",
+    img: `https://picsum.photos/50`,
     position: "UI/UX Designer at Google",
     desc: "All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator.",
     star: "3",
   },
   {
     name: "Tyson",
+    img: `https://picsum.photos/50`,
     position: "UI/UX Designer at Google",
     desc: "All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator.",
     star: "4",
@@ -124,7 +128,7 @@ export default function Testimo() {
                 <p className="lg:mt-3 text-gray-600 leading-8 lg:py-6 py-6">
                   {testimonialData[selectedTestimonial].desc}
                 </p>
-                <div className="flex items-center md:justify-start justify-center gap-4 lg:py-0 py-2 border-t">
+                <div className="flex items-center md:justify-start justify-center gap-4 lg:py-0 py-2 lg:border-none border-t">
                   <img
                     src={`https://picsum.photos/50`}
                     alt="User"
@@ -160,9 +164,7 @@ export default function Testimo() {
             >
               <div className="flex items-center gap-4">
                 <img
-                  src={`https://picsum.photos/id/${
-                    ((selectedTestimonial + index) % testimonialCount) + 100
-                  }/50`}
+                  src={test.img}
                   alt="User"
                   className="w-12 h-12 rounded-full"
                 />
