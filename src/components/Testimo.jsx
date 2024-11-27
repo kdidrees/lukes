@@ -4,6 +4,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "../style.css";
+import { useMediaQuery } from "react-responsive";
 
 const testimonialData = [
   {
@@ -34,6 +35,7 @@ const testimonialData = [
 
 export default function Testimo() {
   const [selectedTestimonial, setSelectedTestimonial] = useState(0);
+  const isMobile = useMediaQuery({ maxWidth: "768px" });
 
   const handleSelect = (index) => {
     setSelectedTestimonial(index);
@@ -43,6 +45,9 @@ export default function Testimo() {
 
   // Get three testimonials around the selected one
   const getVisibleTestimonials = () => {
+    if (isMobile) {
+      return [testimonialData[selectedTestimonial]]; // Show only one card in mobile view
+    }
     return [
       testimonialData[selectedTestimonial],
       testimonialData[(selectedTestimonial + 1) % testimonialCount],
@@ -52,50 +57,19 @@ export default function Testimo() {
 
   return (
     <div className="md:mx-20">
-      <div className="flex flex-col bg-white lg:flex-row items-center lg:items-start justify-center gap-10 p-10">
-        {/* User Cards */}
-        <div className="flex flex-col items-center gap-6">
-          {getVisibleTestimonials().map((test, index) => (
-            <div
-              key={index}
-              className={`cursor-pointer w-full border rounded-lg p-4 transition-all ${
-                selectedTestimonial ===
-                (selectedTestimonial + index) % testimonialCount
-                  ? "bg-blue-100 border-blue-500"
-                  : "bg-white"
-              }`}
-              onClick={() =>
-                handleSelect((selectedTestimonial + index) % testimonialCount)
-              }
-            >
-              <div className="flex items-center gap-4">
-                <img
-                  src={`https://picsum.photos/id/${
-                    ((selectedTestimonial + index) % testimonialCount) + 100
-                  }/50`}
-                  alt="User"
-                  className="w-12 h-12 rounded-full"
-                />
-                <div>
-                  <div className="font-bold">{test.name}</div>
-                  <div className="text-sm text-gray-500">{test.position}</div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+      <div className="flex flex-col lg:flex-row items-center lg:items-start justify-center gap-10 p-10">
         {/* Testimonial Content */}
-        <div className="grid h-full md:w-[70%] w-full">
+        <div className="grid h-full md:w-[70%] w-full order-1 lg:order-2">
           <div className="space-y-10">
             <div className="relative">
               {/* Main Testimonial Card */}
-              <div className="border rounded-lg p-6 transition-all bg-gray-100 relative">
-                <div className="flex justify-between items-center ">
+              <div className="border rounded-lg p-6 transition-all bg-white md:shadow-md shadow-none relative">
+                <div className="flex justify-between items-center">
                   <div>
-                    <div className="font-bold text-xl flex flex-col ">
+                    <div className="font-bold text-xl flex flex-col">
                       Over 100+ People Trust Us
                     </div>
-                    <div className="flex items-center mt-2 ">
+                    <div className="flex items-center mt-2">
                       <div className="flex">
                         {Array.from({
                           length: testimonialData[selectedTestimonial].star,
@@ -126,7 +100,9 @@ export default function Testimo() {
                             testimonialCount
                         )
                       }
-                      className="custom-prev bg-white border rounded-full p-2 shadow-md"
+                      className={`${
+                        isMobile ? " custom-prev-mobile" : "custom-prev"
+                      } bg-white border rounded-full p-2 shadow-md md:mx-4 -mx-7 hover:bg-red-200`}
                     >
                       <GrPrevious />
                     </button>
@@ -136,7 +112,9 @@ export default function Testimo() {
                           (selectedTestimonial + 1) % testimonialCount
                         )
                       }
-                      className="custom-next bg-white border rounded-full p-2 mx-4 shadow-md"
+                      className={`${
+                        isMobile ? "custom-next-mobile" : "custom-next"
+                      }   bg-white border rounded-full p-2 md:mx-4 -mx-7 shadow-md hover:bg-red-200`}
                     >
                       <GrNext />
                     </button>
@@ -155,6 +133,37 @@ export default function Testimo() {
               </div>
             </div>
           </div>
+        </div>
+        {/* User Cards */}
+        <div className="flex flex-col items-center gap-6 order-2 lg:order-1 md:w-max w-full">
+          {getVisibleTestimonials().map((test, index) => (
+            <div
+              key={index}
+              className={`cursor-pointer w-full border rounded-lg p-4 transition-all ${
+                selectedTestimonial ===
+                (selectedTestimonial + index) % testimonialCount
+                  ? "md:bg-red-100 bg-white md:border-red-500 border-t-gray-100"
+                  : "bg-white"
+              }`}
+              onClick={() =>
+                handleSelect((selectedTestimonial + index) % testimonialCount)
+              }
+            >
+              <div className="flex items-center gap-4">
+                <img
+                  src={`https://picsum.photos/id/${
+                    ((selectedTestimonial + index) % testimonialCount) + 100
+                  }/50`}
+                  alt="User"
+                  className="w-12 h-12 rounded-full"
+                />
+                <div>
+                  <div className="font-bold">{test.name}</div>
+                  <div className="text-sm text-gray-500">{test.position}</div>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </div>
