@@ -125,7 +125,7 @@ export default function Testimo() {
                   </div>
                 </div>
 
-                <p className="lg:mt-3 text-gray-600 leading-8 lg:py-6 py-6 overflow-y-auto min-h-[180px]">
+                <p className="lg:mt-3 text-gray-600 leading-8 lg:py-6 py-6 overflow-y-auto lg:min-h-[130px] min-h-[180px]">
                   {testimonialData[selectedTestimonial].desc}
                 </p>
                 <div className="flex items-center md:justify-start justify-center gap-4 lg:py-0 py-2 lg:border-none border-t">
