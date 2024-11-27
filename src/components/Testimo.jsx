@@ -56,10 +56,10 @@ export default function Testimo() {
   };
 
   return (
-    <div className="md:mx-20">
+    <div className="lg:mx-20">
       <div className="flex flex-col lg:flex-row items-center lg:items-start justify-center gap-10 p-10">
         {/* Testimonial Content */}
-        <div className="grid h-full md:w-[70%] w-full order-1 lg:order-2">
+        <div className="grid h-full lg:w-[70%] w-full order-1 lg:order-2">
           <div className="space-y-10">
             <div className="relative">
               {/* Main Testimonial Card */}
@@ -135,7 +135,7 @@ export default function Testimo() {
           </div>
         </div>
         {/* User Cards */}
-        <div className="flex flex-col items-center gap-6 order-2 lg:order-1 md:w-max w-full">
+        <div className="flex flex-col items-center gap-6 order-2 lg:order-1 lg:w-max w-full">
           {getVisibleTestimonials().map((test, index) => (
             <div
               key={index}
