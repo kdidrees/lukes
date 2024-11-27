@@ -67,7 +67,7 @@ export default function Testimo() {
           <div className="space-y-10">
             <div className="relative">
               {/* Main Testimonial Card */}
-              <div className="border  rounded-lg lg:p-6 p-4 transition-all bg-white md:shadow-none  shadow-md relative">
+              <div className="border rounded-lg lg:p-6 p-4 transition-all bg-white md:shadow-none shadow-md relative min-h-[250px] h-full ">
                 <div className="flex justify-between items-center">
                   <div className="lg:block hidden">
                     <div className="font-bold text-xl flex flex-col">
@@ -125,7 +125,7 @@ export default function Testimo() {
                   </div>
                 </div>
 
-                <p className="lg:mt-3 text-gray-600 leading-8 lg:py-6 py-6">
+                <p className="lg:mt-3 text-gray-600 leading-8 lg:py-6 py-6 overflow-y-auto min-h-[180px]">
                   {testimonialData[selectedTestimonial].desc}
                 </p>
                 <div className="flex items-center md:justify-start justify-center gap-4 lg:py-0 py-2 lg:border-none border-t">
