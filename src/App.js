@@ -3,11 +3,12 @@ import Benefits from "./components/AboutUs/Benefits";
 import Leader from "./components/AboutUs/Leader";
 import Satisfaction from "./components/AboutUs/Satisfaction";
 import Faq from "./components/Faq";
+import CarCare from "./components/steamWash/CarCare";
 import Testimo from "./components/Testimo";
 import Testimonial from "./components/Testimonial";
 
 function App() {
-  return <Testimo />;
+  return <CarCare/>
 }
 
 export default App;
