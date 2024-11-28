@@ -41,10 +41,10 @@ export default function CarCare() {
           <div className="pb-8 transition-all bg-white relative h-full">
             <div className="w-full flex items-center justify-start bg-white">
               {/* Heading */}
-              <h1 className="text-2xl md:text-3xl font-bold md:leading-10 leading-3 text-left font-nunito">
+              <h1 className="text-2xl md:text-3xl font-bold md:leading-10 w-[80%] leading-3 text-left font-nunito">
                 <span className="text-[#223142]">The Ultimate </span>
                 <span className="text-[#EE3131]">Car Care</span>
-                <span className="text-[#223142] leading-10"> Solution: </span> 
+                <span className="text-[#223142] leading-7"> Solution: </span> 
                 <span className="text-[#EE3131]">Steam Car Wash</span>
               </h1>
             </div>

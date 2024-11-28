@@ -25,6 +25,7 @@ export default function SteamWash() {
   const rightList = listData.slice(7);
 
   return (
+    
     <div className="grid lg:grid-cols-3 lg:px-20 px-4 grid-cols-1 items-stretch gap-4 py-10">
       {/* Left image */}
       <div className="col-span-1 h-full bg-red-600">
