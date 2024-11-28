@@ -25,7 +25,7 @@ export default function SteamWash() {
   const rightList = listData.slice(7);
 
   return (
-    <div className="grid lg:grid-cols-3  grid-cols-1 items-stretch bg-yellow-300 gap-4">
+    <div className="grid lg:grid-cols-3 lg:px-20 grid-cols-1 items-stretch gap-4 py-10">
       {/* Left image */}
       <div className="col-span-1 h-full bg-red-600">
         <img
@@ -36,33 +36,39 @@ export default function SteamWash() {
       </div>
 
       {/* List items */}
+      <div className="col-span-2 h-full grid lg:grid-cols-2 xl:grid-cols-2 items-center gap-2">
+        {/* Heading */}
+        <div className="col-span-3">
+          <h2 className="text-xl font-bold text-primary  text-left">
+            FEATURES
+          </h2>
+        </div>
 
-    
-      <div className="col-span-2 h-full grid lg:grid-cols-2 items-center gap-2 ">
         {/* Left list */}
-
         <ul>
           {leftList.map((item, index) => (
-            <ListItem key={item.id} text={item.text} />
+            <ListItem key={item.id} text={item.text} isFirst={index === 0} />
           ))}
         </ul>
 
         {/* Right list */}
         <ul>
           {rightList.map((item, index) => (
-            <ListItem key={item.id} text={item.text} />
+            <ListItem key={item.id} text={item.text} isFirst={index === 0} />
           ))}
         </ul>
-
-
       </div>
     </div>
   );
 }
 
-function ListItem({ text }) {
+function ListItem({ text, isFirst }) {
   return (
-    <li className="text-body-color dark:text-dark-6 flex text-base mb-2">
+    <li
+      className={`text-body-color dark:text-dark-6 flex text-base ${
+        isFirst ? "mt-0" : "mt-4"
+      } mb-2`}
+    >
       <span className="bg-primary mr-2.5 flex h-[26px] w-[26px] items-center justify-center rounded-full text-base text-white">
         <img src={point_img} alt="Point" />
       </span>
