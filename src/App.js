@@ -9,6 +9,6 @@ import Testimo from "./components/Testimo";
 import Testimonial from "./components/Testimonial";
 
 function App() {
-  return <SteamWash/>
+  return <CarCare />;
 }
 export default App;
